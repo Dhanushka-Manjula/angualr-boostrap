@@ -1,0 +1,27 @@
+<h1 class="display-4">EMP. Register</h1>
+<form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)" autocomplete="off">
+
+  <div class="form-group">
+    <label for="fullName">Name</label>
+    <input type="text" name="fullName" #fullName="ngModel" [(ngModel)]="employee.fullName" class="form-control"
+      placeholder="full Name" required>
+    <div *ngIf="fullName.invalid && fullName.touched" class="validation-error"> Name is required </div>
+  </div>
+  <div class="form-group">
+    <input type="text" name="position" id="position" [(ngModel)]="employee.position" class="form-control"
+      placeholder="position">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input type="text" name="empCode" id="empCode" [(ngModel)]="employee.empCode" class="form-control"
+        placeholder="text">
+    </div>
+    <div class="form-group col-md-6">
+      <input type="text" name="mobile" id="mobile" [(ngModel)]="employee.mobile" class="form-control"
+        placeholder="mobile">
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-block btn-info btn-lg" [disabled]="employeeForm.invalid"> Submit </button>
+  </div>
+</form>
